@@ -45,6 +45,8 @@ if __name__ == '__main__':
                     delta = str(float(delta) / 1.5)
                 if float(delta) > 90:
                     delta = '90'
+                if float(delta) < 1:
+                    delta = '1'
                 print(delta)
                 delta_lon_lat(delta, lon, lat)
         screen.blit(pygame.image.load("map.png"), (0, 0))
@@ -52,3 +54,6 @@ if __name__ == '__main__':
         clock.tick(30)
     os.remove("map.png")
     pygame.quit()
+"""2.28133742069
+2.28133742069
+6"""
