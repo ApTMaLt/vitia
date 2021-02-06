@@ -43,10 +43,27 @@ if __name__ == '__main__':
                     delta = str(float(delta) * 1.5)
                 if event.key == pygame.K_PAGEDOWN:
                     delta = str(float(delta) / 1.5)
+                if event.key == pygame.K_RIGHT:
+                    lon = str(float(lon) + float(delta) / 2)
+                if event.key == pygame.K_LEFT:
+                    lon = str(float(lon) - float(delta) / 2)
+                if event.key == pygame.K_UP:
+                    lat = str(float(lat) + float(delta) / 4)
+                if event.key == pygame.K_DOWN:
+                    lat = str(float(lat) - float(delta) / 4)
                 if float(delta) > 90:
                     delta = '90'
                 if float(delta) < 1:
                     delta = '1'
+                if float(lon) > 179:
+                    lon = str(float(lon) - 359)
+                elif float(lon) < -179:
+                    lon = str(float(lon) + 359)
+                if float(lat) > 85:
+                    lat = str(float(lat) - 170)
+                elif float(lat) < -85:
+                    lat = str(float(lat) + 170)
+                print(lat)
                 print(delta)
                 delta_lon_lat(delta, lon, lat)
         screen.blit(pygame.image.load("map.png"), (0, 0))
